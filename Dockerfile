@@ -2,7 +2,7 @@
 FROM rockylinux:9.3.20231119 AS builder
 
 # 安裝編譯依賴
-RUN dnf update -y && dnf install wget gcc zlib zlib-devel make openssl-devel -y
+RUN dnf update -y && dnf install wget gcc zlib zlib-devel make openssl-devel libffi-devel -y
 
 # 下載並解壓 Python
 WORKDIR /src
