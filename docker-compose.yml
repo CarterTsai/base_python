@@ -1,0 +1,5 @@
+version: '3'
+services:
+  airflow:
+    build: .
+    image: base-python:3.10.13
