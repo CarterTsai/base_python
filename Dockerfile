@@ -9,6 +9,8 @@ WORKDIR /src
 RUN wget https://www.python.org/ftp/python/3.10.13/Python-3.10.13.tgz && \
     tar -xzf Python-3.10.13.tgz
 
+RUN dnf install sqlite-devel -y
+
 # 編譯 Python
 WORKDIR /src/Python-3.10.13
 RUN ./configure --enable-optimizations && make -j 2 && make altinstall
