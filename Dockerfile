@@ -3,13 +3,12 @@ FROM rockylinux:9.3.20231119 AS builder
 
 # 安裝編譯依賴
 RUN dnf update -y && dnf install wget gcc zlib zlib-devel make openssl-devel libffi-devel -y
+RUN dnf install bzip2-devel sqlite-devel -y
 
 # 下載並解壓 Python
 WORKDIR /src
 RUN wget https://www.python.org/ftp/python/3.10.13/Python-3.10.13.tgz && \
     tar -xzf Python-3.10.13.tgz
-
-RUN dnf install sqlite-devel -y
 
 # 編譯 Python
 WORKDIR /src/Python-3.10.13
